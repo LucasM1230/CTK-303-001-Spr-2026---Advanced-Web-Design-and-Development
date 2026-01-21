@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Billboard #1 on My Birthday (Dec 30, 1998)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-dark:#0f0a0a;
+      --bg-red:#3a0d0d;
+      --card:#140d0dcc;
+      --text:#f5f3f3;
+      --muted:#d2c7c7;
+      --accent:#cfa45a;
+      --line:#ffffff1a;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      color:var(--text);
+      font-family:"Inter", system-ui, sans-serif;
+      background:
+        radial-gradient(1000px 700px at 15% 10%, #5a141455 0%, transparent 60%),
+        radial-gradient(900px 700px at 85% 20%, #2a0a0a 0%, transparent 55%),
+        linear-gradient(160deg, var(--bg-dark), var(--bg-red));
+      overflow-x:hidden;
+    }
+
+    header{
+      padding:56px 18px 28px;
+      text-align:center;
+    }
+
+    .pill{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid #ffffff22;
+      background:#00000044;
+      font-weight:600;
+      margin-bottom:12px;
+      color:var(--accent);
+    }
+
+    h1{
+      margin:10px 0 10px;
+      font-family:"Playfair Display", serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+      letter-spacing:0.01em;
+    }
+
+    .subtitle{
+      color:var(--muted);
+      max-width:880px;
+      margin:0 auto;
+      line-height:1.6;
+      font-size:1.05rem;
+    }
+
+    .wrap{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 18px 64px;
+    }
+
+    .grid{
+      display:grid;
+      gap:20px;
+      grid-template-columns: 1.3fr 0.7fr;
+    }
+
+    @media (max-width: 900px){
+      .grid{grid-template-columns:1fr;}
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid #ffffff14;
+      border-radius:22px;
+      padding:20px;
+      box-shadow:0 24px 80px #00000088;
+      backdrop-filter: blur(10px);
+    }
+
+    .kicker{
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:.7rem;
+      color:var(--accent);
+      font-weight:600;
+      margin-bottom:8px;
+    }
+
+    .big{
+      font-size:1.9rem;
+      font-weight:600;
+      margin-bottom:6px;
+      font-family:"Playfair Display", serif;
+    }
+
+    .muted{color:var(--muted)}
+    .divider{height:1px; background:var(--line); margin:16px 0}
+
+    .quote{
+      border:1px solid #ffffff18;
+      border-radius:16px;
+      padding:14px;
+      background:#00000033;
+      font-style:italic;
+      font-family:"Playfair Display", serif;
+      font-size:1.05rem;
+    }
+
+    .timeline{
+      border:1px solid #ffffff18;
+      border-radius:16px;
+      padding:14px;
+      background:#00000033;
+    }
+
+    input[type="range"]{
+      width:100%;
+      margin-top:10px;
+      accent-color: var(--accent);
+    }
+
+    .videoLink{
+      display:block;
+      margin-top:12px;
+      text-align:center;
+      font-weight:600;
+      color:var(--accent);
+    }
+
+    footer{
+      text-align:center;
+      color:var(--muted);
+      padding:26px;
+      font-size:.9rem;
+    }
+
+    a{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    a:hover{text-decoration:underline}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="pill">December 30, 1998</div>
+    <h1>Billboard #1 on My Birthday</h1>
+
+    <p class="subtitle">
+      This page looks at the Billboard Hot 100 song that was #1 during the week I was born.
+      I was born on December 30, 1998, and the top song that week was
+      <b>“I’m Your Angel”</b> by <b>R. Kelly &amp; Céline Dion</b>.
+      I wanted to turn that into a small time capsule tied to music from that moment.
+    </p>
+  </header>
+
+  <main class="wrap">
+    <section class="grid">
+      <div class="card">
+        <div class="kicker">Song</div>
+        <div class="big">I’m Your Angel</div>
+        <div class="muted">R. Kelly &amp; Céline Dion</div>
+        <div class="muted">Chart week: Week of Dec 26, 1998</div>
+
+        <div class="divider"></div>
+
+        <div class="kicker">Video</div>
+
+        <img
+          src="https://img.youtube.com/vi/iVEMpqfL-3k/hqdefault.jpg"
+          alt="I'm Your Angel music video thumbnail"
+          style="width:100%; border-radius:16px;">
+
+        <a
+          class="videoLink"
+          href="https://youtu.be/iVEMpqfL-3k"
+          target="_blank"
+          rel="noreferrer">
+          Listen to the song on YouTube
+        </a>
+
+        <div class="divider"></div>
+
+        <div class="kicker">Lyric excerpt</div>
+        <div class="quote">I'll be your cloud up in the sky...
+I'll be your shoulder when you cry...
+I'll hear your voices when you call me...
+I am your angel</div>
+
+        <p class="muted" style="margin-top:14px">
+          The song focuses on reassurance and being there for someone when things feel overwhelming.
+          A lot of the lyrics are about trust, belief, and offering support, which gives the song a calm,
+          emotional tone.
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="kicker">Timeline</div>
+        <div class="timeline">
+          <p class="muted">
+            Move the slider to see how my birthday lines up across different years.
+          </p>
+          <input id="yearSlider" type="range" min="1998" max="2026" value="1998" />
+          <p><b>Year:</b> <span id="yearOut">1998</span></p>
+          <p><b>Age:</b> <span id="ageOut">0</span></p>
+        </div>
+
+        <div class="divider"></div>
+
+        <p class="muted">
+          Source:
+          <a href="https://www.billboard.com/charts/hot-100/1998-12-26/" target="_blank" rel="noreferrer">
+            Billboard Hot 100 – Week of Dec 26, 1998
+          </a>
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="kicker">Design notes</div>
+        <p class="muted">
+          I went with darker reds and softer highlights to match the mood of the song and its video.
+          The goal was to keep the page feeling warm and dramatic without distracting from the content.
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="kicker">Why this song matters</div>
+        <p class="muted">
+          This song works as a snapshot of the time I was born. Its emotional tone and overall style
+  line up with the kind of music that was popular in the late 1990s.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Created by Lucas Meinecke
+  </footer>
+
+  <script>
+    const slider = document.getElementById("yearSlider");
+    const yearOut = document.getElementById("yearOut");
+    const ageOut = document.getElementById("ageOut");
+
+    slider.addEventListener("input", () => {
+      const year = parseInt(slider.value, 10);
+      yearOut.textContent = year;
+      ageOut.textContent = year - 1998;
+    });
+  </script>
+</body>
+</html>
