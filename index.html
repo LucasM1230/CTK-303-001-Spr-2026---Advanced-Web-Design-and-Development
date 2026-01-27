@@ -1,268 +1,411 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Billboard #1 on My Birthday (Dec 30, 1998)</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Monk Specializations</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg-dark:#0f0a0a;
-      --bg-red:#3a0d0d;
-      --card:#140d0dcc;
-      --text:#f5f3f3;
-      --muted:#d2c7c7;
-      --accent:#cfa45a;
-      --line:#ffffff1a;
-    }
+<style>
+:root{
+  --bg0:#05060a;
+  --bg1:#0b0f18;
+  --text:#eef6ff;
+  --muted:#b7c6d8;
+  --line:rgba(255,255,255,.14);
 
-    *{box-sizing:border-box}
+  --brew:#f2a21a;
+  --mist:#31e08a;
+  --wind:#68b7ff;
+}
 
-    body{
-      margin:0;
-      color:var(--text);
-      font-family:"Inter", system-ui, sans-serif;
-      background:
-        radial-gradient(1000px 700px at 15% 10%, #5a141455 0%, transparent 60%),
-        radial-gradient(900px 700px at 85% 20%, #2a0a0a 0%, transparent 55%),
-        linear-gradient(160deg, var(--bg-dark), var(--bg-red));
-      overflow-x:hidden;
-    }
+*{box-sizing:border-box}
+html,body{height:100%}
 
-    header{
-      padding:56px 18px 28px;
-      text-align:center;
-    }
+body{
+  margin:0;
+  color:var(--text);
+  font-family:Inter,system-ui,sans-serif;
+  background:
+    radial-gradient(800px 500px at 20% 15%, rgba(242,162,26,.14), transparent 60%),
+    radial-gradient(900px 600px at 80% 30%, rgba(49,224,138,.10), transparent 62%),
+    radial-gradient(900px 700px at 55% 90%, rgba(104,183,255,.10), transparent 60%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+  padding:26px;
+}
 
-    .pill{
-      display:inline-block;
-      padding:8px 14px;
-      border-radius:999px;
-      border:1px solid #ffffff22;
-      background:#00000044;
-      font-weight:600;
-      margin-bottom:12px;
-      color:var(--accent);
-    }
+.wrap{
+  width:min(1000px, 100%);
+  margin:0 auto;
+  text-align:center;
+}
 
-    h1{
-      margin:10px 0 10px;
-      font-family:"Playfair Display", serif;
-      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-      letter-spacing:0.01em;
-    }
+h1{
+  font-family:Unbounded,system-ui;
+  letter-spacing:.02em;
+  margin:0 0 10px;
+  font-size:clamp(1.6rem, 3vw, 2.4rem);
+}
 
-    .subtitle{
-      color:var(--muted);
-      max-width:880px;
-      margin:0 auto;
-      line-height:1.6;
-      font-size:1.05rem;
-    }
+.sub{
+  margin:0 auto 22px;
+  max-width:70ch;
+  color:var(--muted);
+  line-height:1.5;
+}
 
-    .wrap{
-      max-width:1100px;
-      margin:0 auto;
-      padding:0 18px 64px;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:16px;
+}
 
-    .grid{
-      display:grid;
-      gap:20px;
-      grid-template-columns: 1.3fr 0.7fr;
-    }
+@media (max-width: 900px){
+  .grid{grid-template-columns:1fr}
+}
 
-    @media (max-width: 900px){
-      .grid{grid-template-columns:1fr;}
-    }
+a.card{
+  color:inherit;
+  text-decoration:none;
+}
 
-    .card{
-      background:var(--card);
-      border:1px solid #ffffff14;
-      border-radius:22px;
-      padding:20px;
-      box-shadow:0 24px 80px #00000088;
-      backdrop-filter: blur(10px);
-    }
+.card{
+  position:relative;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:18px 16px 22px;
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(10px);
+  overflow:hidden;
+  transform: translateY(0);
+  transition: transform .18s ease, border-color .18s ease;
+}
 
-    .kicker{
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      font-size:.7rem;
-      color:var(--accent);
-      font-weight:600;
-      margin-bottom:8px;
-    }
+.card:hover,
+.card:focus{
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,.24);
+  outline:none;
+}
 
-    .big{
-      font-size:1.9rem;
-      font-weight:600;
-      margin-bottom:6px;
-      font-family:"Playfair Display", serif;
-    }
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-60px;
+  opacity:.22;
+  filter: blur(18px);
+  animation: drift 8s ease-in-out infinite;
+}
 
-    .muted{color:var(--muted)}
-    .divider{height:1px; background:var(--line); margin:16px 0}
+@keyframes drift{
+  0%,100%{transform: translate(0,0) scale(1)}
+  50%{transform: translate(16px,-10px) scale(1.05)}
+}
 
-    .quote{
-      border:1px solid #ffffff18;
-      border-radius:16px;
-      padding:14px;
-      background:#00000033;
-      font-style:italic;
-      font-family:"Playfair Display", serif;
-      font-size:1.05rem;
-    }
+.role{
+  font-size:.78rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.72);
+  margin:0 0 10px;
+}
 
-    .timeline{
-      border:1px solid #ffffff18;
-      border-radius:16px;
-      padding:14px;
-      background:#00000033;
-    }
+.icon{
+  width:110px;
+  height:110px;
+  border-radius:20px;
+  margin:0 auto 12px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.16);
+  background: rgba(0,0,0,.35);
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
+}
 
-    input[type="range"]{
-      width:100%;
-      margin-top:10px;
-      accent-color: var(--accent);
-    }
+.icon img{
+  width:92px;
+  height:92px;
+  object-fit:contain;
+  filter: drop-shadow(0 0 18px rgba(255,255,255,.08));
+  animation: float 2.8s ease-in-out infinite;
+}
 
-    .videoLink{
-      display:block;
-      margin-top:12px;
-      text-align:center;
-      font-weight:600;
-      color:var(--accent);
-    }
+@keyframes float{
+  0%,100%{transform: translateY(0)}
+  50%{transform: translateY(-8px)}
+}
 
-    footer{
-      text-align:center;
-      color:var(--muted);
-      padding:26px;
-      font-size:.9rem;
-    }
+h2{
+  margin:0 0 6px;
+  font-family:Unbounded,system-ui;
+  font-size:1.05rem;
+}
 
-    a{
-      color:var(--accent);
-      text-decoration:none;
-      font-weight:600;
-    }
+.desc{
+  margin:0;
+  color:var(--muted);
+  line-height:1.45;
+  font-size:.95rem;
+  opacity:.92;
+}
 
-    a:hover{text-decoration:underline}
-  </style>
+.glow{
+  position:absolute;
+  inset:auto 16px 14px 16px;
+  height:3px;
+  border-radius:999px;
+  opacity:.95;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse{
+  0%,100%{transform: scaleX(.9); opacity:.65}
+  50%{transform: scaleX(1); opacity:1}
+}
+
+.brew::before{background: radial-gradient(circle at 30% 35%, var(--brew), transparent 60%)}
+.brew .glow{background: linear-gradient(90deg, transparent, var(--brew), transparent)}
+
+.mist::before{background: radial-gradient(circle at 30% 35%, var(--mist), transparent 60%)}
+.mist .glow{background: linear-gradient(90deg, transparent, var(--mist), transparent)}
+
+.wind::before{background: radial-gradient(circle at 30% 35%, var(--wind), transparent 60%)}
+.wind .glow{background: linear-gradient(90deg, transparent, var(--wind), transparent)}
+
+/* Ability section */
+.ability-wrap{
+  margin:18px auto 0;
+  text-align:left;
+}
+
+.hint{
+  border:1px dashed rgba(255,255,255,.18);
+  border-radius:18px;
+  padding:16px 18px;
+  color:rgba(255,255,255,.70);
+  background: rgba(0,0,0,.22);
+}
+
+.panel{
+  display:none;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:18px;
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(10px);
+  padding:18px;
+  overflow:hidden;
+  position:relative;
+}
+
+.panel::before{
+  content:"";
+  position:absolute;
+  inset:-90px;
+  opacity:.20;
+  filter: blur(22px);
+  pointer-events:none;
+}
+
+.panel-content{
+  position:relative;
+  z-index:1;
+}
+
+.tag{
+  display:inline-block;
+  font-size:.78rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.72);
+  margin-bottom:10px;
+}
+
+.panel h3{
+  margin:0 0 6px;
+  font-family:Unbounded,system-ui;
+  font-size:1.15rem;
+}
+
+.panel p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.55;
+}
+
+.ability-layout{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap:16px;
+  align-items:start;
+}
+
+@media (max-width: 800px){
+  .ability-layout{grid-template-columns:1fr}
+}
+
+.ability-img{
+  width:min(320px, 100%);
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
+  display:block;
+}
+
+.links{
+  margin-top:12px;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.links a{
+  color:rgba(255,255,255,.88);
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.28);
+  padding-bottom:2px;
+}
+
+.links a:hover{
+  border-bottom-color: rgba(255,255,255,.55);
+}
+
+/* Show selected panel */
+#brew-ability:target,
+#mist-ability:target,
+#wind-ability:target{
+  display:block;
+  animation: pop .35s ease-out;
+}
+
+@keyframes pop{
+  from{transform: translateY(10px); opacity:0}
+  to{transform: translateY(0); opacity:1}
+}
+
+/* Default hint unless a panel is targeted */
+body:not(:has(:target)) .hint{display:block}
+body:not(:has(:target)) .panel{display:none}
+body:has(:target) .hint{display:none}
+
+#brew-ability::before{background: radial-gradient(circle at 30% 35%, var(--brew), transparent 60%)}
+#mist-ability::before{background: radial-gradient(circle at 30% 35%, var(--mist), transparent 60%)}
+#wind-ability::before{background: radial-gradient(circle at 30% 35%, var(--wind), transparent 60%)}
+
+footer{
+  margin-top:18px;
+  color:rgba(255,255,255,.55);
+  font-size:.85rem;
+  text-align:center;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important}
+}
+</style>
 </head>
 
 <body>
-  <header>
-    <div class="pill">December 30, 1998</div>
-    <h1>Billboard #1 on My Birthday</h1>
-
-    <p class="subtitle">
-      This page looks at the Billboard Hot 100 song that was #1 during the week I was born.
-      I was born on December 30, 1998, and the top song that week was
-      <b>“I’m Your Angel”</b> by <b>R. Kelly &amp; Céline Dion</b>.
-      I wanted to turn that into a small time capsule tied to music from that moment.
-    </p>
-  </header>
-
   <main class="wrap">
-    <section class="grid">
-      <div class="card">
-        <div class="kicker">Song</div>
-        <div class="big">I’m Your Angel</div>
-        <div class="muted">R. Kelly &amp; Céline Dion</div>
-        <div class="muted">Chart week: Week of Dec 26, 1998</div>
+    <h1>Monk Specializations</h1>
+    <p class="sub">A simple showcase of the three Monk specializations in World of Warcraft.</p>
 
-        <div class="divider"></div>
-
-        <div class="kicker">Video</div>
-
-        <img
-          src="https://img.youtube.com/vi/iVEMpqfL-3k/hqdefault.jpg"
-          alt="I'm Your Angel music video thumbnail"
-          style="width:100%; border-radius:16px;">
-
-        <a
-          class="videoLink"
-          href="https://youtu.be/iVEMpqfL-3k"
-          target="_blank"
-          rel="noreferrer">
-          Listen to the song on YouTube
-        </a>
-
-        <div class="divider"></div>
-
-        <div class="kicker">Lyric excerpt</div>
-        <div class="quote">I'll be your cloud up in the sky...
-I'll be your shoulder when you cry...
-I'll hear your voices when you call me...
-I am your angel</div>
-
-        <p class="muted" style="margin-top:14px">
-          The song focuses on reassurance and being there for someone when things feel overwhelming.
-          A lot of the lyrics are about trust, belief, and offering support, which gives the song a calm,
-          emotional tone.
-        </p>
-
-        <div class="divider"></div>
-
-        <div class="kicker">Timeline</div>
-        <div class="timeline">
-          <p class="muted">
-            Move the slider to see how my birthday lines up across different years.
-          </p>
-          <input id="yearSlider" type="range" min="1998" max="2026" value="1998" />
-          <p><b>Year:</b> <span id="yearOut">1998</span></p>
-          <p><b>Age:</b> <span id="ageOut">0</span></p>
+    <section class="grid" aria-label="Monk specializations">
+      <a class="card brew" href="#brew-ability">
+        <p class="role">Brewmaster — Tank</p>
+        <div class="icon">
+          <img src="brewmaster.png" alt="Brewmaster icon">
         </div>
+        <h2>Brewmaster</h2>
+        <p class="desc">A sturdy brawler who uses unpredictable movement and mystical brews to avoid damage and protect allies.</p>
+        <div class="glow" aria-hidden="true"></div>
+      </a>
 
-        <div class="divider"></div>
+      <a class="card mist" href="#mist-ability">
+        <p class="role">Mistweaver — Healer</p>
+        <div class="icon">
+          <img src="mistweaver.png" alt="Mistweaver icon">
+        </div>
+        <h2>Mistweaver</h2>
+        <p class="desc">A healer who masters the art of life energy, guided by the wisdom of the Jade Serpent.</p>
+        <div class="glow" aria-hidden="true"></div>
+      </a>
 
-        <p class="muted">
-          Source:
-          <a href="https://www.billboard.com/charts/hot-100/1998-12-26/" target="_blank" rel="noreferrer">
-            Billboard Hot 100 – Week of Dec 26, 1998
-          </a>
-        </p>
+      <a class="card wind" href="#wind-ability">
+        <p class="role">Windwalker — Damage</p>
+        <div class="icon">
+          <img src="windwalker.png" alt="Windwalker icon">
+        </div>
+        <h2>Windwalker</h2>
+        <p class="desc">A martial artist who overwhelms enemies with speed, pressure, and nonstop strikes.</p>
+        <div class="glow" aria-hidden="true"></div>
+      </a>
+    </section>
+
+    <section class="ability-wrap" aria-label="Signature abilities">
+      <div class="hint">Click a specialization to see one signature ability.</div>
+
+      <div id="brew-ability" class="panel">
+        <div class="panel-content">
+          <div class="tag">Signature Ability</div>
+          <div class="ability-layout">
+            <div>
+              <h3>Stagger</h3>
+              <p>
+                You shrug off attacks, delaying a portion of Physical damage based on your Agility instead of taking it over 10 sec. Affects magical attacks at reduced effectiveness. Gain up to 15% Mastery based on your current level of Stagger.
+              </p>
+              <div class="links">
+                <a href="https://www.wowhead.com/spell=115069/stagger" target="_blank" rel="noopener">Ability Source</a>
+                <a href="#" aria-label="Back to top">Back</a>
+              </div>
+            </div>
+            <img class="ability-img" src="stagger.png" alt="Stagger tooltip image">
+          </div>
+        </div>
       </div>
 
-      <div class="card">
-        <div class="kicker">Design notes</div>
-        <p class="muted">
-          I went with darker reds and softer highlights to match the mood of the song and its video.
-          The goal was to keep the page feeling warm and dramatic without distracting from the content.
-        </p>
+      <div id="mist-ability" class="panel">
+        <div class="panel-content">
+          <div class="tag">Signature Ability</div>
+          <div class="ability-layout">
+            <div>
+              <h3>Renewing Mist</h3>
+              <p>
+                Surrounds the target with healing mists, restoring health over 22 sec. If Renewing Mist heals a target past maximum health, it will travel to another injured ally within range. Maximum of 3 charges.
+              </p>
+              <div class="links">
+                <a href="https://www.wowhead.com/spell=448430/renewing-mist" target="_blank" rel="noopener">Ability Source</a>
+                <a href="#" aria-label="Back to top">Back</a>
+              </div>
+            </div>
+            <img class="ability-img" src="renewing-mist.png" alt="Renewing Mist tooltip image">
+          </div>
+        </div>
+      </div>
 
-        <div class="divider"></div>
-
-        <div class="kicker">Why this song matters</div>
-        <p class="muted">
-          This song works as a snapshot of the time I was born. Its emotional tone and overall style
-  line up with the kind of music that was popular in the late 1990s.
-        </p>
+      <div id="wind-ability" class="panel">
+        <div class="panel-content">
+          <div class="tag">Signature Ability</div>
+          <div class="ability-layout">
+            <div>
+              <h3>Fists of Fury</h3>
+              <p>
+                Pummels all targets in front of you, dealing damage over 4 sec. Deals primary damage to your main target and reduced damage to nearby enemies. Can be channeled while moving.
+              </p>
+              <div class="links">
+                <a href="https://www.wowhead.com/spell=458575/fists-of-fury" target="_blank" rel="noopener">Ability Source</a>
+                <a href="#" aria-label="Back to top">Back</a>
+              </div>
+            </div>
+            <img class="ability-img" src="fists-of-fury.png" alt="Fists of Fury tooltip image">
+          </div>
+        </div>
       </div>
     </section>
+
+    <footer>Created by Lucas Meinecke</footer>
   </main>
-
-  <footer>
-    Created by Lucas Meinecke
-  </footer>
-
-  <script>
-    const slider = document.getElementById("yearSlider");
-    const yearOut = document.getElementById("yearOut");
-    const ageOut = document.getElementById("ageOut");
-
-    slider.addEventListener("input", () => {
-      const year = parseInt(slider.value, 10);
-      yearOut.textContent = year;
-      ageOut.textContent = year - 1998;
-    });
-  </script>
 </body>
 </html>
-
