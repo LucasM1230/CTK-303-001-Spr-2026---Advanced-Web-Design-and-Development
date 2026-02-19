@@ -1,0 +1,52 @@
+html, body{
+  height:100%;
+}
+
+body{
+  margin:0;
+  background: url("thebackroomslevel0.jpg") center / 85% no-repeat fixed;
+}
+
+#TheBackrooms{
+  animation: thebackrooms-ani 1s infinite;
+}
+
+#TheBackrooms text,
+#BodyText text{
+  font-family: "Times New Roman", Georgia, serif;
+  fill: #000;
+}
+
+#TheBackrooms text{
+  font-size: 52px;
+}
+
+#BodyText text{
+  font-size: 26px;
+}
+
+@keyframes thebackrooms-ani {
+ 0%, 18%, 22%, 25%, 53%, 57%, 63% ,100% {
+        text-shadow: 
+            0 0 4px white, 
+            0 0 11px white, 
+            0 0 19px white, 
+            0 0 40px #fff, 
+            0 0 80px #fff, 
+            0 0 90px #fff, 
+            0 0 100px #fff, 
+            0 0 150px #fff;
+        opacity: 1;
+        transform: translate(0, 0);
+
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+        opacity: 0.5;
+        transform: translate(-10px, -20px);
+    }
+
+    60% {
+        transform: translate(10px, 20px);
+    }
+}
